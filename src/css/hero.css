@@ -1,20 +1,27 @@
 .hero-text {
     text-align: center;
-    width: 100%;
-    /* height: 100%; */
-    padding: 0;
-    margin: 0;
-    transform: translateY(100%);
+    width: 50%;
+    padding: auto;
+    margin: 5% auto auto auto;
+}
+
+.hero-text p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.625;
+    letter-spacing: .05rem;
+    padding: auto;
+    margin: auto .5rem 1rem .5rem;
 }
 
 .hero-text h1  {
     color: #fff;
-}
-
-.hero-text p  {
-    color: #fff;
-    padding: auto 3rem;
-    margin: auto 3rem 1rem 3rem;
+    line-height: 1.2;
+    letter-spacing: .25;
+    font-weight: lighter;
+    font-size: 4rem;
 }
 
 .hero-text button  {
@@ -30,15 +37,19 @@
     opacity: .8;
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .hero-text {
-        transform: translateY(350%);
+        transform: translateY(250%);
     }
-}
+} */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 450px) {
     .hero-text {
-        transform: translateY(201%);
+        width: 100%;
+        margin: 25% auto auto auto;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
 }
 

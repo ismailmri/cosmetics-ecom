@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Header  />
+        {/* <Header  /> */}
         <Main>{children}</Main>
         <Footer />
       </ThemeProvider>

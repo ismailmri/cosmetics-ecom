@@ -1,3 +1,13 @@
+/* .title {
+  text-align: center;
+} 
+ 
+ .title h1 {
+  padding: 1rem;
+  font-weight: lighter;
+  margin-top: 2rem;
+}
+
 .products {
   width: 100%;
   display: grid;
@@ -7,6 +17,7 @@
   max-height: 100%;
   padding: auto 1rem;
   margin-bottom: 2rem;
+  margin-top: 10%;
   overflow: hidden;
 }
 
@@ -28,7 +39,6 @@
   height: 100%;
   width: 100%;
   max-height: 450px;
-  /* margin: auto; */
   text-align: center;
   font-family: arial;
   overflow: hidden;
@@ -36,7 +46,7 @@
 }
 
 .card:hover {
-  opacity: .7;
+  opacity: .9;
 }
 
 .card h4 {
@@ -49,7 +59,7 @@
   padding: 1rem;
   text-decoration: none;
   margin: 0;
-  /* font-size: 22px; */
+  font-weight: bold;
 }
 
 .card p:nth-child(4) {
@@ -67,6 +77,14 @@
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+}
+
+.card .hidden {
+  opacity: 0;
+}
+
+.card .hidden:hover {
+  opacity: 1;
 }
 
 .card button:hover {
@@ -88,5 +106,114 @@
   }
   .all-products {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+ */
+
+ /* .products {
+   width: 100%;
+   margin: auto;
+   padding: auto;
+ } */
+
+ .title {
+   text-align: center;
+   margin: 4% auto auto auto;
+   padding: auto;
+ }
+
+ .title h1 {
+  font-family: url('../fonts/baskerville-cufonfonts/baskvl.ttf');
+   margin-bottom: 5px;
+
+ }
+
+ .products {
+   max-width: 80%;
+   margin: 10% auto auto auto;
+   padding: auto;
+ }
+
+ .card {
+  width: 100%;
+ }
+
+ .about {
+  max-width: 100%;
+   text-align: center;
+ }
+
+ .about-title {
+  font-family: url('../fonts/baskerville-cufonfonts/baskvl.ttf');
+   margin-bottom: 5px;
+ }
+
+ .about span:nth-child(2) {
+   color: #FFC0CB;
+ }
+
+ .about span:nth-child(3) {
+    text-decoration: line-through;
+    color: #999;
+    
+ }
+
+ .buy button:first-child {
+   color: #FFC0CB;
+   border: 2px solid #FFC0CB;
+   outline: 0;
+   padding: 12px;
+   background-color: transparent;
+   text-align: center;
+   cursor: pointer;
+   width: 100%;
+   font-size: 18px;
+   margin-bottom: .5rem;
+   transition: outline 0.1s linear;
+ }
+
+ .buy button:first-child:hover {
+    border: 4px solid #FFC0CB;
+ }
+
+ .buy button:nth-child(2) {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #fff;
+  background-color: #FFC0CB;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.buy button:nth-child(2):hover {
+  background-color: #d38894;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .products {
+    display: flex;
+    width: 100%;
+  }
+
+  .card {
+    width: 50%;
+    margin: auto;
+    padding: auto;
+  }
+
+  .about {
+    width: 50%;
+    padding: auto;
+    margin: auto auto auto 5%;
+  }
+
+  .products a {
+    width: 100%;
+    display: flex;
   }
 }

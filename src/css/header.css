@@ -1,50 +1,138 @@
 .navigation {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     /* position: absolute; */
     top: 0;
     width: 100%;
-    z-index:1;
+    height: auto;
+    z-index: 1;
+
 }
 
+.logo a {
+    color: #000;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    position: absolute !important;
+    text-align: center;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    right: 50%;
+    /* left: 50%; */
+    top: 2%;
+    /* padding: 2px 5px; */
+    font-size: 24px;
+}
+
+.navbar-logo {
+    position: absolute;
+    top: 5px;
+    right: 126.5%;
+    background-image: url("../images/logo.svg");
+    background-size: cover;
+    background-position: left;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    margin-right: 7.5%;
+    text-align: center;
+    overflow-x: visible;
+}
+.navbar-links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 8%;
+    height: auto;
+    /* position: absolute; */
+    margin-left: 15%;
+    align-content: center;
+    padding: 0% 7.5%;
+    position: relative;
+}
 .navbar-link {
-    float: right;
-    padding-right: 10%;
+    float: left;
+    -webkit-text-decoration-style: none;
     text-decoration-style: none;
+    display: inline-flex;
+    position: relative;
+    padding-right: 16%;
 }
 
 .navbar-link a {
     text-decoration: none;
     padding: 10px;
-    color: #000000;
+    color: #fff;
     font-family: Arial;
     font-weight: 900;
+
 }
 
 .navbar-link a:hover { 
     text-decoration:underline;
 }
-.navbar-logo {
-    padding-left: 10%;
-    font-family: Arial;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000000;
+
+
+.snipcart-checkout {
+    background-image: url("../images/snipcart-add-item.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    width: 21px;
+    height: 21px;
+    /* margin: 5.5% 2%; */
+    position: absolute !important;
+    right: 0%;
+    top: 2%;
+    text-align: center;
+}
+.MuiAppBar-root {
+    width: 100%;
+    display: flex;
+    padding: auto;
+    z-index: 1100;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+
+    color:  #fff !important;
+    background-color: #fff !important;
 }
 
+
+
+@media only screen and (min-width: 1000px) {
+    .navigation {
+        padding: auto;
+        margin: auto;
+    }
+
+    .snipcart-checkout {
+        right: 10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .snipcart-checkout {
+        right: 10%;
+    }
+}
+
+
 @media only screen and (max-width: 400px) {
-    .navbar-logo {
+    .navbar-link a {
         font-size: 1.5rem;
     }
 }
 
 @media only screen and (max-width: 350px) {
-    .navbar-logo {
+    .navbar-link a {
         font-size: 1.2rem;
-    }
 
-    .navbar-link a{
         font-weight: 600;
     }
 }

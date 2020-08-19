@@ -1,11 +1,19 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Image from 'gatsby-image';
+
 import Layout from '../components/layout';
+import Header from '../components/header';
+
+import AliceCarousel from 'react-alice-carousel';
+import styled from '@emotion/styled';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+
+
+import "react-alice-carousel/lib/alice-carousel.css";
 import '../css/product.css'
+import assetUrl from '../components/contentfulImage';
 
 
 
@@ -18,17 +26,17 @@ export const query = graphql `
         productName
         shortDescription
         description {
-            json
+          json
         }
-        mainimage {
-            fluid {
+        mainImage {
+          fluid(quality: 90, maxHeight: 400, maxWidth: 300) {
             ...GatsbyContentfulFluid_withWebp
-            }
+          }
         }
         otherImages {
-            fluid {
+          fluid(quality: 90, maxHeight: 400, maxWidth: 300) {
             ...GatsbyContentfulFluid_withWebp
-            }
+          }
         }
         price
         discountedPrice
@@ -41,27 +49,13 @@ export const query = graphql `
     }
   `
 
-const StyledImage = styled(Img)`
-  width: 30rem;
-  height: 30rem;
-  margin: 1rem;
-  background-repeat: none;
-  @media  (max-width: 700px) {
-    width: 100%;
-    margin: 1rem 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-`;
-
 const Bold = styled.span`
   font-weight: bold;
-  color: red;
+  color: black;
 `;
 
 const P = styled.p`
-  // color: orangered;
+// color: orangered;
 `;
 
 const StyledHyperLink = styled.span`
@@ -75,53 +69,102 @@ const StyledHyperLink = styled.span`
 const RTFBold = ({ children }) => <Bold>{children}</Bold>;
 const Text = ({ children }) => <P>{children}</P>;
 const HyperLink = ({ children }) => (
-  <StyledHyperLink>{children}</StyledHyperLink>
+<StyledHyperLink>{children}</StyledHyperLink>
 );
 
 // modifying the options
- const options = {
-    renderMark: {
-      [MARKS.BOLD]: text => <RTFBold>{text}</RTFBold>,
-    },
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: text => <RTFBold>{text}</RTFBold>,
+  },
 
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-      [INLINES.HYPERLINK]: (node, children) => (
-        <HyperLink>{children}</HyperLink>
-      ),
-    },
-  };
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    [INLINES.HYPERLINK]: (node, children) => (
+      <HyperLink>{children}</HyperLink>
+    ),
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      return (
+        <img className='custom-asset' alt={node.data.target.fields.title['en-US']} src={
+          node.data.target.fields.file['en-US'].url
+        }/>
+      );
+    }
+  },
+};
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+`;
+
+
 
 const Product = ({ data: { item } }) => {
-  const options = {
-    // options for rich text formating
+
+  useEffect(() => {
+    const i = setTimeout(() => {
+      console.log('timer')
+    }, 2000)
+    return () => {
+      clearTimeout(i);
+    }
+  }, []);
+
+
+  const responsive = {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 1
+    },
+    1024: {
+      items: 1
+    },
+    1440: {
+      items: 1
+    }
   };
+  
 
   return (
     <Layout>
+      <Header />
+      <>
       <div className="product-card">
-        <StyledImage fluid={item.mainimage.fluid} />
-        {/* <div> {<StyledImage fluid={item.otherImages.fluid} /> ? <StyledImage fluid={item.otherImages.fluid} /> : <StyledImage fluid={item.mainimage.fluid}/> } </div> */}
+        <div className="product-images">
+          <AliceCarousel autoPlay autoPlayInterval={6000} responsive={responsive}>
+          {item.otherImages.map((otherImages, i) => (
+              <StyledImage className="sliderimg" key={[] + i} fluid={item.otherImages[i].fluid} alt={item.productName}/>
+            ))}
+          </AliceCarousel>
+        </div>
 
         <div className="product-info">
           <h2>{item.productName}</h2>
-          <p className="price"> {item.price}</p>
-          <p className="price"> {item.discountedPrice}</p>
-          <div className="buy">
+            <p className="price"> ${item.price}</p>
+            <p className="price"> {item.discountedPrice}</p>
+          <div className="buy-button animated shake">
             <button
               className={`snipcart-add-item`}
               data-item-id={item.id}
               data-item-name={item.productName}
-              data-item-image={item.mainimage.fluid.src}
+              data-item-image={item.mainImage.fluid.src}
               data-item-price={item.discountedPrice ? item.discountedPrice : item.price}
-              data-item-url={`https://lucid-engelbart-e13bc0.netlify.app/${item.productSlug}`}
+              data-item-url={`https://slicksal.com/products/${item.productSlug}`}
             >
-              Add to Cart
+              Buy Now
             </button>
           </div>
           <main>{documentToReactComponents(item.description.json, options)}</main>
         </div>
       </div>
+      </>
     </Layout>
   );
 };

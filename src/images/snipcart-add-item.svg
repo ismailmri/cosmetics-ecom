@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="26px" viewBox="0 0 25 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>snipcart-add-item</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="product-card" transform="translate(-275.000000, -311.000000)">
+            <g id="snipcart-add-item" transform="translate(276.000000, 312.000000)">
+                <g>
+                    <polyline id="Path" stroke="#e1c9b4" stroke-width="2" points="0 0 2.72727273 3.29032258 2.72727273 13.1612903 1.09090909 17 24 17"></polyline>
+                    <polyline id="Path" stroke="#e1c9b4" stroke-width="2" points="3 3 22 3 18.7428571 13 3 13"></polyline>
+                    <circle id="Oval" stroke="#e1c9b4" stroke-width="2" stroke-linecap="square" cx="3" cy="22" r="2"></circle>
+                    <circle id="Oval" stroke="#e1c9b4" stroke-width="2" stroke-linecap="square" cx="21" cy="22" r="2"></circle>
+                    <rect id="Rectangle" fill="#e1c9b4" x="11" y="5" width="2" height="6"></rect>
+                    <rect id="Rectangle" fill="#e1c9b4" transform="translate(12.000000, 8.000000) rotate(90.000000) translate(-12.000000, -8.000000) " x="11" y="5" width="2" height="6"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

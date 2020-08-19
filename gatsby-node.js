@@ -13,9 +13,9 @@ exports.createPages = async ({ actions, graphql }) => {
     `);
   
   
-   // create page for each product and list
-  // them all in /products/:productSlug 
-  data.allContentfulProduct.nodes.forEach(item => {
+    // create page for each product and list
+    // them all in /products/:productSlug 
+    data.allContentfulProduct.nodes.forEach(item => {
       createPage({
         path: `products/${item.productSlug}`,
         component: path.resolve('./src/templates/product.js'),

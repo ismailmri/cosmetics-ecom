@@ -20,13 +20,13 @@ const About = () => {
                     
                         <div className="form-group">
                             <div className="col-sm-12">
-                            <input type="text" className="form-control" id="name" placeholder="NAME" name="name" value="" />
+                            <input type="text" className="form-control" id="name" placeholder="NAME" name="name" />
                             </div>
                         </div>
 
                         <div className="form-group">
                             <div className="col-sm-12">
-                            <input type="email" className="form-control" id="email" placeholder="EMAIL" name="email" value="" />
+                            <input type="email" className="form-control" id="email" placeholder="EMAIL" name="email" />
                             </div>
                         </div>
 
