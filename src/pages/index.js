@@ -156,7 +156,7 @@ const IndexPage = ({ data }) => {
                     data-item-name={product.productName}
                     data-item-image={product.mainImage.fluid.src}
                     data-item-price={product.discountedPrice ? product.discountedPrice : product.price}
-                    data-item-url={`https://lucid-engelbart-e13bc0.netlify.app//products/${product.productSlug}`}
+                    data-item-url={`https://lucid-engelbart-e13bc0.netlify.app/${product.productSlug}`}
                   >
                    Add to Cart
                   </button>
@@ -166,7 +166,7 @@ const IndexPage = ({ data }) => {
                     data-item-name={product.productName}
                     data-item-image={product.mainImage.fluid.src}
                     data-item-price={product.discountedPrice ? product.discountedPrice : product.price}
-                    data-item-url={`https://lucid-engelbart-e13bc0.netlify.app//products/${product.productSlug}`}
+                    data-item-url={`https://lucid-engelbart-e13bc0.netlify.app/${product.productSlug}`}
                   >
                     Buy Now
                   </button>
