@@ -53,7 +53,7 @@
     box-shadow: 0 18px 40px -12 rgba(255, 211, 211, 0.35);
     text-decoration: none;
     display: inline-block;
-    z-index: 10;
+    z-index: 11;
 }
 
 .product-card button:hover {
