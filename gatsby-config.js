@@ -4,7 +4,7 @@ require('dotenv').config({
 
 let URL;
 if (process.env.NODE_ENV === 'production') {
-  URL = 'https://lucid-engelbart-e13bc0.netlify.app';
+  URL = 'https://brave-bhabha-0972df.netlify.app';
 } else {
   URL = 'http://localhost:8000';
 }
